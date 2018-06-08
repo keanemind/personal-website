@@ -1,0 +1,3 @@
+[submodule "themes/hugo-base16-theme"]
+	path = themes/hugo-base16-theme
+	url = https://github.com/keanemind/hugo-base16-theme.git
