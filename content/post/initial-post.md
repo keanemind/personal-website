@@ -1,7 +1,7 @@
 ---
 title: "Initial Post"
 date: 2018-06-17T16:32:31-05:00
-draft: true
+draft: false
 ---
 
 I’m creating this site as a new format for journaling my incremental work on tech projects over time. I intend to write updates here that act like longer git commits for each day.
