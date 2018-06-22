@@ -29,7 +29,7 @@ _My work here is done_, I thought. _Back to fixing that damned .gdbinit file!_
 
 Little did I know my impatience would waste far more of my time than it would save!
 
-We quickly realized that, although the build completed successfully, the post was not being listed in the posts page. For the next thirty minutes, we tried all sorts of things. From change the front matter to changing the file name to copying example posts exactly, nothing would work. We disabled caching and refreshed over and over to no avail. For some inexplicable reason, the page always showed up when served locally, but never on GitHub Pages!
+We quickly realized that, although the build completed successfully, the post was not being listed in the posts page. For the next thirty minutes, we tried all sorts of things. From changing the front matter to changing the file name to copying example posts exactly, nothing would work. We disabled caching and refreshed over and over to no avail. For some inexplicable reason, the page always showed up when served locally, but never on GitHub Pages!
 
 I browsed to his site on my computer, went to the Posts page, and grimly confirmed that the post was still missing. I even tried changing the end of the URL to get to the page URL directly. That didn't work either.
 
