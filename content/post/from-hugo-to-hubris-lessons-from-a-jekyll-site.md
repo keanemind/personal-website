@@ -43,6 +43,8 @@ I dashed to him.
 
 "My god, you're right! We never set the site URL in the config file!"
 
+I went to Kunal's home page, clicked on the Posts link, and watched as the top level domain switched, confirming what I suspected. Because we copied the config file from the theme's repository, the site URL was still set to the demo site. This meant that every resource and link on the site was routed to the demo site, not Kunal's GitHub Pages URL. Since Kunal hadn't changed anything about the website yet, the look of the two sites was indistinguishable. Still, it's hard to believe that even as I modified the end of the URL to try to find the post directly, I never noticed that the domain was completely different from github.io.
+
 I shook my head in disbelief, facepalming internally. _He would have been better off just following that YouTube video!_ I fumed at myself.
 
 Thankfully, editing the config file did the trick and his site was finally fully functional. 
