@@ -25,7 +25,7 @@ I created a new markdown file in the `_posts` folder, named it something random,
 
 I instructed him to add, commit, and push the new post to GitHub. I sighed and waited for the automatic build to complete.
 
-_My work here is done_, I thought._ Back to fixing that damned .gdbinit file!_
+_My work here is done_, I thought. _Back to fixing that damned .gdbinit file!_
 
 Little did I know my impatience would waste far more of my time than it would save!
 
