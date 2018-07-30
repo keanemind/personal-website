@@ -5,7 +5,7 @@ draft: false
 ---
 Before today, it was possible for people to register a phone number on Lost-n-Phoned even if they did not have access to the phone with that number. They could do this by visiting https://lostnphoned.com/authorize?phone= and appending any phone number.
 
-Why did I set it up this way? The issue was linking HTTP requests by Twilio with HTTP requests by the registering user's web browser. 
+Why did I set it up this way? The issue was linking HTTP requests from Twilio with HTTP requests from the registering user's web browser. 
 
 Let's go through an example to make this clearer. A user texts the service "Register" to register. The text is received by Twilio and is passed on to my server by an HTTP request coming from Twilio. My server now knows the phone number of the person who wants to register. My server tells Twilio to text the person back with a link to allow Lost-n-Phoned access to their contacts. He clicks the link, but when my server receives the HTTP request from the user's web browser, how is it supposed to know which phone number is associated with this HTTP session? If multiple people are registering at once, which is entirely possible, Flask can't know which HTTP request from Twilio to associate with which HTTP request from the users' web browsers.
 
