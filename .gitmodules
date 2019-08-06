@@ -1,3 +1,3 @@
 [submodule "themes/personal-hugo-theme"]
 	path = themes/personal-hugo-theme
-	url = git@github.com:keanemind/personal-hugo-theme.git
+	url = https://github.com:keanemind/personal-hugo-theme.git
