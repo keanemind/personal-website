@@ -1,4 +1,4 @@
-baseURL = "https://techlog.keanenguyen.com/"
+baseURL = "https://www.keanenguyen.com/"
 languageCode = "en-us"
-title = "tech.log"
-theme = "hugo-base16-theme"
+title = "Keane Nguyen"
+theme = "personal-hugo-theme"
