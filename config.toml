@@ -2,3 +2,6 @@ baseURL = "https://www.keanenguyen.com/"
 languageCode = "en-us"
 title = "Keane Nguyen"
 theme = "personal-hugo-theme"
+
+[params]
+  faviconURL = "img/favicon.png"
