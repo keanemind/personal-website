@@ -1,7 +1,7 @@
 ---
 title: What Happens in a Year
 date: '2019-08-06T22:27:55-05:00'
-draft: true
+draft: false
 ---
 The following things happened in the past year:
 - I took Operating Systems and hacked on top of PintOS
@@ -15,8 +15,8 @@ Looking back, there was much I could have said here about the countless technica
 
 Anyways, I'm back. I intend to write here more frequently again. 
 
-Regarding the way the website looks: I noticed that I kept wanting to change the theme of this website. My visual tastes change frequently and I tire too quickly of whatever the current theming is. 
+Regarding the way the website looks: I noticed that I kept wanting to change the theme of this website, as my visual tastes shift frequently and I tire quickly of whatever the current theming is. 
 
-My solution, which you see today, was to create my own theme. I have wanted my own theme for a while now. This time, with full control in my hands, I made the styling of the site so barebones and simple that it should be quite difficult to get tired of it. I made it almost look as if there was no CSS, like a webpage from the days of Netscape.
+My solution, which you see today, was to create my own theme. I have wanted my own theme for a while now. This time, with full control in my hands, I made the styling of the site so barebones and simple that it should be quite difficult to get tired of it. I made it look almost as if there was no CSS, like a webpage from the days of Netscape.
 
-I like the way it looks, really. It suits my current tastes, even if it may fail to stand the test of time. The plain white background, the default serif font. The hilarious placement of all posts on the same page, which conveniently allows for Ctrl+F searching. I'm going for a classic look, in a way similar to young women wearing 90s-style mom jeans. But if you find it too atrocious to bear, I won't mind if you tell me so.
+I like the way it looks, really. It suits my current tastes, even if it may fail to stand the test of time. The plain white background, the default serif font. The hilarious placement of all posts on the same page, which conveniently allows for Ctrl+F searching. Like young women wearing 90s-style mom jeans, I'm shamelessly bringing an old look into the modern world. But if you find it too atrocious to bear, I won't mind if you tell me so.
