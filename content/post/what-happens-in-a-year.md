@@ -4,6 +4,7 @@ date: '2019-08-06T22:27:55-05:00'
 draft: false
 ---
 The following things happened in the past year:
+
 - I took Operating Systems and hacked on top of PintOS
 - I led a few friends in making an io game (PIXI.js, Express.js)
 - I led 5 other ECE students in making a fantasy golf website (React.js, Flask, MySQL)
