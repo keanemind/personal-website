@@ -1,5 +1,5 @@
 ---
-title: Default MacOS resolution scaling setting changed in Catalina
+title: Default MacOS Resolution Scaling Setting Changed in Catalina
 date: 2020-10-08T07:23:28.781Z
 draft: false
 ---
