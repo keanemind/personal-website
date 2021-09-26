@@ -2,7 +2,6 @@ baseURL = "https://www.keane.dev/"
 languageCode = "en-us"
 title = "Keane Nguyen"
 theme = "personal-hugo-theme"
-googleAnalytics = "UA-145709082-1"
 
 [params]
   faviconURL = "img/favicon.png"
