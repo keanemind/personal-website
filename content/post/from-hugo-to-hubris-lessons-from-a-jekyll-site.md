@@ -37,7 +37,7 @@ Finally, I admitted defeat. It was getting late, and I still needed to wash the 
 
 "I'm sorry my friend," I said, as I walked to the kitchen sink. "I'll help you with it tomorrow." 
 
-I turned on the water and barely picked up a plate when Kunal said, "Oh! The link to the posts page goes to demo website, not mine!"
+I turned on the water and barely picked up a plate when Kunal said, "Oh! The link to the posts page goes to the demo website, not mine!"
 
 I dashed to him.
 
