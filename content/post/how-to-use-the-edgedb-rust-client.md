@@ -59,6 +59,6 @@ let result = conn
     .await;
 ```
 
-On 4th line, the `<MyEnum>` cast is not required in `<MyEnum><str>` due to [implicit casting](https://www.edgedb.com/docs/reference/edgeql/casts#implicit-casts). It's only there for clarity.
+On 4th line, the `<MyEnum>` cast is not required in `<MyEnum><str>$0` due to [implicit casting](https://www.edgedb.com/docs/reference/edgeql/casts#implicit-casts). It's only there for clarity.
 
 Being a complete beginner, I wasn't able to figure out a way to use the data returned by the non-json functions, like `query_required_single`. Instead, I used the json version of each query function and used `serde_json::from_str` to get the values I needed out of the result.
