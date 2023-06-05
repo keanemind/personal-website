@@ -5,3 +5,7 @@ theme = "personal-hugo-theme"
 
 [params]
   faviconURL = "img/favicon.png"
+
+[markup]
+  [markup.highlight]
+    style = "bw"
