@@ -115,7 +115,7 @@ const mocked1 = fn().mockImplementation(
   // Custom implementation: arrow function returning
   // non-primitive value
   () => {
-    this.c = "d";
+    this.c = "d"; // here, `this` refers to the NodeJS module we’re in
     return {
       a: "b",
     };
@@ -125,18 +125,19 @@ console.log(new mocked1(), mocked1.mock.instances);
 // { a: 'b' } [ mockConstructor {} ]
 // The two are not the same. The instance in the `instances`
 // array remains unmodified by the line `this.c = "d"` because
-// the arrow function is unable to modify `this`.
+// the arrow function is unable to access the correct `this` value.
 
 const mocked2 = fn().mockImplementation(
   // Custom implementation: arrow function returning undefined
   () => {
-    this.c = "d";
+    this.c = "d"; // here, `this` refers to the NodeJS module we’re in
   }
 );
 console.log(new mocked2(), mocked2.mock.instances);
 // mockConstructor {} [ mockConstructor {} ]
 // The two are the same, but unmodified by the line `this.c = "d"`
-// because the arrow function is unable to modify `this`.
+// because the arrow function is unable to access the correct
+// `this` value.
 
 const mocked3 = fn().mockImplementation(
   // Custom implementation: `function` function returning
@@ -163,6 +164,12 @@ console.log(new mocked4(), mocked4.mock.instances);
 // mockConstructor { c: 'd' } [ mockConstructor { c: 'd' } ]
 // The two are the same, and successfully modified by the
 // line `this.c = "d"`.
+
+console.log(this);
+// { c: 'd' }
+// When the arrow functions modified `this`, they were
+// actually changing the entire module's `this` rather
+// than the mock SoundPlayer instance being constructed.
 ```
 
 For all of these examples, replacing `fn()` with `jest.fn()` will result in the same output.
