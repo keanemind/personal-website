@@ -172,7 +172,7 @@ My take is that, to avoid tripping up users, the example in the Jest documentati
 ```js
 import SoundPlayer from './sound-player';
 const mockPlaySoundFile = jest.fn();
-jest.mock(‘./sound-player’, () => {
+jest.mock('./sound-player', () => {
   return jest.fn().mockImplementation(function () {
     this.playSoundFile = mockPlaySoundFile;
   });
