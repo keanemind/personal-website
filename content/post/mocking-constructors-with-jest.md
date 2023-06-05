@@ -19,7 +19,7 @@ jest.mock('./sound-player', () => {
 
 Which mocks this class:
 
-```
+```js
 export default class SoundPlayer {
   constructor() {
     this.foo = 'bar';
@@ -44,7 +44,7 @@ test("get mocked instance", () => {
 
 That test fails:
 
-```
+```console
     expect(received).toBe(expected) // Object.is equality
 
     - Expected  - 1
@@ -67,8 +67,7 @@ To fully understand why that is, we need to know a little about the new keyword 
 
 Notice how the `mockImplementation` function returns an object (`{playSoundFile: mockPlaySoundFile}`). That object will, of course, be returned by the mocked function. And that mocked function is being called with new. That means the `this` value created in step 1, `newInstance`, is not what’s being returned. The tricky part is that Jest stores `newInstance` into `instances`, not whatever you return from your constructor! You can think of the internals of `jest.fn()` as looking like this:
 
-```
-
+```js
 /**
  * Create a mock function. A partial simulation of `jest.mock`.
  */
@@ -105,7 +104,7 @@ function fn() {
 
 Here are some examples to demonstrate the consequences of using an arrow function and returning an object instead of modifying `this`:
 
-```
+```js
 // No custom implementation; default mock function.
 const mocked0 = fn();
 console.log(new mocked0(), mocked0.mock.instances);
@@ -170,7 +169,7 @@ For all of these examples, replacing `fn()` with `jest.fn()` will result in the 
 
 My take is that, to avoid tripping up users, the example in the Jest documentation should probably look like this:
 
-```
+```js
 import SoundPlayer from './sound-player';
 const mockPlaySoundFile = jest.fn();
 jest.mock(‘./sound-player’, () => {
@@ -180,4 +179,4 @@ jest.mock(‘./sound-player’, () => {
 });
 ```
 
-And that would suffice to pass the earlier `"get mocked instance"` test.
+And that would suffice to pass the earlier `”get mocked instance”` test.
