@@ -65,7 +65,7 @@ To fully understand why that is, we need to know a little about the new keyword 
 4. If the constructor function returns a non-primitive, this return value becomes the result of the whole `new` expression. Otherwise, if the constructor function doesn't return anything or returns a primitive, `newInstance` is returned instead. (Normally constructors don't return a value, but they can choose to do so to override the normal object creation process.)
 
 
-Notice how the `mockImplementation` function returns an object (`{playSoundFile: mockPlaySoundFile}`). That object will, of course, be returned by the mocked function. And that mocked function is being called with new. That means the `this` value created in step 1, `newInstance`, is not what’s being returned. The tricky part is that Jest stores `newInstance` into `instances`, not whatever you return from your constructor! You can think of the internals of `jest.fn()` as looking like this:
+Notice how the `mockImplementation` argument returns an object: `return {playSoundFile: mockPlaySoundFile}`. That object will, of course, be returned by the mocked function. And that mocked function is being called with new. That means the `this` value created in step 1, `newInstance`, is not what’s being returned. The tricky part is that Jest stores `newInstance` into `instances`, not whatever you return from your constructor! You can think of the internals of `jest.fn()` as looking like this:
 
 ```js
 /**
@@ -179,4 +179,4 @@ jest.mock(‘./sound-player’, () => {
 });
 ```
 
-And that would suffice to pass the earlier `”get mocked instance”` test.
+And that would suffice to pass the earlier `"get mocked instance"` test.
