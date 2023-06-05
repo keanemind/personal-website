@@ -31,7 +31,7 @@ export default class SoundPlayer {
 }
 ```
 
-Note that the mock implementation is mocking a constructor function. The function passed to `mockImplementation` is an arrow function, but arrow functions can’t be used as constructors. How come the mock works when used as a constructor? The answer is that the arrow function passed to `mockImplementation` doesn’t become the entirety of the resulting mocked function. The final mocked function is a combination of the functionality that comes with `jest.fn()` as well as the custom code in the arrow function passed to `mockImplementation`. And the final mocked function returned from `mockImplementation` (and made available to the code under test) is a `function` function, which can be used with the new keyword.
+Note that the mock implementation is mocking a constructor function. The function passed to `mockImplementation` is an arrow function, but arrow functions can’t be used as constructors. How come the mock works when used as a constructor? The answer is that the arrow function passed to `mockImplementation` doesn’t become the entirety of the resulting mocked function. The final mocked function is a combination of the functionality that comes with `jest.fn()` as well as the custom code in the arrow function passed to `mockImplementation`. And the final mocked function returned from `mockImplementation` (and made available to the code under test) is a `function` function, which can be used with the `new` keyword.
 
 But the example is not just a little confusing; it comes with a major pitfall that has tripped up several poor Jest users, including me ([#2982](https://github.com/jestjs/jest/issues/2982), [#8431](https://github.com/jestjs/jest/issues/8431), [#10965](https://github.com/jestjs/jest/issues/10965), [#11316](https://github.com/jestjs/jest/issues/11316)). If you try to read the `instances` property of the mocked function, it won’t work as expected! 
 
@@ -56,16 +56,16 @@ That test fails:
     + }
 ```
 
-To fully understand why that is, we need to know a little about the new keyword in JavaScript. MDN explains what happens when you invoke a function with new:
+To fully understand why that is, we need to know a little about the `new` keyword in JavaScript. [MDN explains what happens when you invoke a function with `new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new#description):
 
-> When a function is called with the new keyword, the function will be used as a constructor. new will do the following things:
+> When a function is called with the **`new`** keyword, the function will be used as a constructor. `new` will do the following things:
 1. Creates a blank, plain JavaScript object. For convenience, let's call it `newInstance`.
 2. Points `newInstance`’s [[Prototype]] to the constructor function's `prototype` property, if the `prototype` is an `Object`. Otherwise, `newInstance` stays as a plain object with `Object.prototype` as its [[Prototype]]. Note: Properties/objects added to the constructor function's `prototype` property are therefore accessible to all instances created from the constructor function.
 3. Executes the constructor function with the given arguments, binding `newInstance` as the `this` context (i.e. all references to `this` in the constructor function now refer to `newInstance`).
 4. If the constructor function returns a non-primitive, this return value becomes the result of the whole `new` expression. Otherwise, if the constructor function doesn't return anything or returns a primitive, `newInstance` is returned instead. (Normally constructors don't return a value, but they can choose to do so to override the normal object creation process.)
 
 
-Notice how the `mockImplementation` argument returns an object: `return {playSoundFile: mockPlaySoundFile}`. That object will, of course, be returned by the mocked function. And that mocked function is being called with new. That means the `this` value created in step 1, `newInstance`, is not what’s being returned. The tricky part is that Jest stores `newInstance` into `instances`, not whatever you return from your constructor! You can think of the internals of `jest.fn()` as looking like this:
+Notice how the `mockImplementation` argument returns an object: `return {playSoundFile: mockPlaySoundFile}`. That object will, of course, be returned by the mocked function. And that mocked function is being called with `new`. That means the `this` value created in step 1, `newInstance`, is not what’s being returned. The tricky part is that Jest stores `newInstance` into `instances`, not whatever you return from your constructor! You can think of the internals of `jest.fn()` as looking like this:
 
 ```js
 /**
