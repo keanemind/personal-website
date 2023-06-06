@@ -116,6 +116,6 @@ I decided to take control over the memory usage of the program by translating my
 
 > Side note: I tried and failed to get ChatGPT 3.5 to write the program for me. It kept trying to parse the entire file at once. I concede that my inexperience with prompting may have been at fault.
 
-The output revealed that our user objects had more than 90 possible fields, of which only 40 were known before running my schema generator. And every single one of those 90 fields was optional, meaning that none of them were present in every user object. Granted, there were many thousands of user objects created over many months, but I would have expected at least one common field like "createdAt" or something. 
+The output revealed that our user objects had more than 90 possible fields, of which only 40 were known before running my schema generator. And every single one of those 90 fields was optional, meaning that none of them were present in every user object. Granted, there were many thousands of user objects created over many months, but I would have expected at least one common field like `createdAt` or something. 
 
 Our live code definitely expected some of those user object fields to always exist, so if certain users with ancient user objects tried to use the site, they would have encountered runtime errors from null pointers and other problems. No wonder people care about data integrity!
