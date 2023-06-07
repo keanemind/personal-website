@@ -32,16 +32,8 @@ function* tokenizer(input) {
       }
     } else {
       if (c === '"') {
-        if (stringOrKey !== undefined) {
-          yield { type: "PRIMITIVE", value: stringOrKey };
-          stringOrKey = undefined;
-        }
         isString = true;
       } else if (c === "{") {
-        if (stringOrKey !== undefined) {
-          yield { type: "PRIMITIVE", value: stringOrKey };
-          stringOrKey = undefined;
-        }
         yield { type: "OBJECT_START" };
       } else if (c === "}") {
         if (stringOrKey !== undefined) {
@@ -54,10 +46,6 @@ function* tokenizer(input) {
         }
         yield { type: "OBJECT_END" };
       } else if (c === "[") {
-        if (stringOrKey !== undefined) {
-          yield { type: "PRIMITIVE", value: stringOrKey };
-          stringOrKey = undefined;
-        }
         yield { type: "ARRAY_START" };
       } else if (c === "]") {
         if (stringOrKey !== undefined) {
@@ -97,7 +85,6 @@ function* tokenizer(input) {
   }
   if (stringOrKey !== undefined) {
     yield { type: "PRIMITIVE", value: stringOrKey };
-    stringOrKey = undefined;
   }
   if (value.length) {
     yield {
@@ -111,7 +98,6 @@ function* tokenizer(input) {
           ? true
           : parseFloat(value),
     };
-    value = "";
   }
 }
 
